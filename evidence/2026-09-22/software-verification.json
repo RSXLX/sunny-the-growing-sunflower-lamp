@@ -1,0 +1,50 @@
+{
+  "date": "2026-09-22",
+  "scope": "manufacturing versions and software demo; hardware deferred by user",
+  "python": "3.13.14",
+  "verification": {
+    "python_tests": {
+      "passed": 56,
+      "failed": 0,
+      "elapsed_seconds": 7.255
+    },
+    "javascript_syntax": "passed",
+    "firmware_pure_cpp": "passed",
+    "native_browser_report": "manufacturing-browser/browser-tests.json",
+    "full_firmware_build": "not_run",
+    "hardware": "not_run",
+    "paid_tripo": "not_run",
+    "remote_ci": "not_run",
+    "native_browser": {
+      "passed": 17,
+      "page_errors": [],
+      "mode": "native browser HTTP"
+    }
+  },
+  "source_hashes": {
+    ".github/workflows/ci.yml": "a69ea50baf3e7bb53535c3bc5fc91e9973ee01084aec4bce5089b244b7ceb956",
+    "BLOOM-complete-delivery/01_MVP项目/growing-lamp-mvp/app/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "BLOOM-complete-delivery/01_MVP项目/growing-lamp-mvp/app/errors.py": "f0a448a8c7abc26174c12a118681b6aa5afb7a2434f00a2d02c1edc8c9f08d20",
+    "BLOOM-complete-delivery/01_MVP项目/growing-lamp-mvp/app/geometry.py": "c52aa9de542a01d0491a34d1341571c127548e7cc9776c156a8166781eb69cec",
+    "BLOOM-complete-delivery/01_MVP项目/growing-lamp-mvp/app/manufacturing.py": "84e7c75b21846d7a82bebe5c5c2f195aa438b2f2e4531e6e58a93935bdb1d623",
+    "BLOOM-complete-delivery/01_MVP项目/growing-lamp-mvp/app/migrations.py": "530867c185b4733a4868164c3677fdc20f216d25fc5631a0214507b1f5956fa6",
+    "BLOOM-complete-delivery/01_MVP项目/growing-lamp-mvp/app/providers.py": "fc1200029d59a05ae95aef8735bf3e9a05c99b0380ed50b0db408c296c227e1d",
+    "BLOOM-complete-delivery/01_MVP项目/growing-lamp-mvp/app/server.py": "804235ae757706fb4b8704aef3ae52883139f6cccd922672c9d8e2ec0c23fb07",
+    "BLOOM-complete-delivery/01_MVP项目/growing-lamp-mvp/app/service.py": "d8ea9dde31b010904ea0c67858e3e547b1c3ef1c0e5412052bbb5bd9db927f38",
+    "BLOOM-complete-delivery/01_MVP项目/growing-lamp-mvp/app/store.py": "2c0e45b50b314755d6b0b8c3dcd216b512ebc6cdcc0d5d3f735623f7bd548dba",
+    "BLOOM-complete-delivery/01_MVP项目/growing-lamp-mvp/tests/browser_smoke.py": "836f49c922a85bc813de985c2157494622573f7618b18c0f26790c64afec3c60",
+    "BLOOM-complete-delivery/01_MVP项目/growing-lamp-mvp/tests/test_core.py": "8ba95dca2394d6d4cc00195cea6410b1a7ce15149a86673f05adbffb581d5a2a",
+    "BLOOM-complete-delivery/01_MVP项目/growing-lamp-mvp/tests/test_http.py": "bcf469d5ccd92b45d9f2787c4ee78de638456f8ab8dcfdc0acbe08cbc06a75b9",
+    "BLOOM-complete-delivery/01_MVP项目/growing-lamp-mvp/tests/test_manufacturing.py": "66e4fd8630657f7f341f33013d749950aed20180249ec70f050f91ae8e1477c1",
+    "BLOOM-complete-delivery/01_MVP项目/growing-lamp-mvp/tools/backup.py": "c0f018b19f9d7848f2de54211478c5e43363ade7d794784075ec88d84791871a",
+    "BLOOM-complete-delivery/01_MVP项目/growing-lamp-mvp/tools/check.py": "2895350b61ca2ceb0ba7ee8c9d9a2a73d559361d7c63434b71ffbfcb96c7d339",
+    "BLOOM-complete-delivery/01_MVP项目/growing-lamp-mvp/tools/export_cad.py": "82f29b0fb9b585f81158d28963bb2c6b8388a2bc5e2e1dc2d82cff1bae77040e",
+    "BLOOM-complete-delivery/01_MVP项目/growing-lamp-mvp/tools/package_project.py": "e3e5d7ee23f647913c9a9716e84ced38904475e7344fe904a7d9082f52f5bef9",
+    "BLOOM-complete-delivery/01_MVP项目/growing-lamp-mvp/tools/prepare_generated.py": "7975c48a687cb91496c77ccf613f02bfa3a589164e437d0244f47e9a383d81e2",
+    "BLOOM-complete-delivery/01_MVP项目/growing-lamp-mvp/web/app.js": "40ef713b9427fe89e46cd8680e1144a71ad72cd4b0f0b72db5890380bd41af8b",
+    "BLOOM-complete-delivery/01_MVP项目/growing-lamp-mvp/web/style.css": "fbcacaa87c6a1b3367c6d1467cf709493e0a46b92c1d4cf9795301794b2e3041",
+    "BLOOM-complete-delivery/01_MVP项目/growing-lamp-mvp/web/viewer.js": "147bef1531fc792d864578ffb023e8f442e21de8514d53be155ec7e92fcff730",
+    "check.py": "8eae86e91457c6cc748eb72af5c7e82681037b1373b028d1f40c1cb18969cc24",
+    "run.py": "269f8d6f402e5929a01690510325ee43f83534109df0282bdbbf30f82715f080"
+  }
+}

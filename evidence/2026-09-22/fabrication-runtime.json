@@ -1,0 +1,10 @@
+{
+  "schema_versions": [
+    1,
+    2,
+    3
+  ],
+  "integrity": "ok",
+  "foreign_key_errors": [],
+  "fabrication_photos": 0
+}

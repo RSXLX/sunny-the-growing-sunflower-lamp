@@ -1,0 +1,16 @@
+{
+  "path": "/Users/sxlx/Documents/ChatGPT/tripo-向日葵/.runtime/backups/software-demo-20260922-full.zip",
+  "sha256": "d092caf4114e4e610024865ec182142473a5b6a0bb86a19df153f30b7a2a5e29",
+  "files": 121,
+  "counts": {
+    "users": 2,
+    "memories": 10,
+    "designs": 15,
+    "instances": 9,
+    "manufacturing_versions": 15,
+    "fabrication_records": 0,
+    "reference_assets": 0,
+    "fabrication_photos": 0
+  },
+  "excluded_orphan_files": 0
+}

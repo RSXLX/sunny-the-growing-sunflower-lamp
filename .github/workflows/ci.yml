@@ -1,0 +1,29 @@
+name: SUNNY software and firmware
+on: [push, pull_request]
+permissions:
+  contents: read
+defaults:
+  run:
+    working-directory: BLOOM-complete-delivery/01_MVP项目/growing-lamp-mvp
+jobs:
+  software:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: pip install -r requirements.txt
+      - run: python tools/check.py
+  firmware:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install platformio==6.1.18
+      - run: pio run -d hardware/firmware

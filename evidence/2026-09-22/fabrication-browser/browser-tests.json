@@ -1,0 +1,33 @@
+{
+  "checks": [
+    {
+      "name": "mobile form saves measurements and canonical photo on the failed attempt",
+      "passed": true
+    },
+    {
+      "name": "network retry does not duplicate a record or attachment",
+      "passed": true
+    },
+    {
+      "name": "same-version retry keeps failure photo and increments attempt history",
+      "passed": true
+    },
+    {
+      "name": "remake pins the selected version and links back without overwriting the failed instance",
+      "passed": true
+    },
+    {
+      "name": "another account cannot read the private evidence or fabrication history",
+      "passed": true
+    },
+    {
+      "name": "no uncaught JavaScript exceptions",
+      "passed": true
+    }
+  ],
+  "page_errors": [],
+  "mode": "native HTTP with synthetic evidence fixtures and no workers",
+  "paid_tripo_tested": false,
+  "hardware_tested": false,
+  "passed": true
+}

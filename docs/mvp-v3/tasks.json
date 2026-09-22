@@ -1,0 +1,1158 @@
+[
+  {
+    "id": "PL-01",
+    "module": "产品",
+    "title": "冻结用户故事、交付范围与非目标",
+    "role": "P",
+    "effort_days": [
+      0.5,
+      1
+    ],
+    "depends_on": [],
+    "deliverable": "范围矩阵、演示故事板",
+    "acceptance": "核心/完整/增强三档可区分；未验证能力有标记",
+    "release": "R0",
+    "status": "planned"
+  },
+  {
+    "id": "PL-02",
+    "module": "资源",
+    "title": "确认样件、实物负责人和打印档期",
+    "role": "H",
+    "effort_days": [
+      0.5,
+      1
+    ],
+    "depends_on": [
+      "PL-01"
+    ],
+    "deliverable": "实购物料/测量清单、制造档期",
+    "acceptance": "关键样件型号、到货日、打印机/材料与返工窗口可执行",
+    "release": "R0",
+    "status": "deferred_hardware",
+    "progress_note": "2026-09-22 用户确认目前没有硬件，先推进软件；此项实物工作暂缓，未验收。",
+    "updated_at": "2026-09-22"
+  },
+  {
+    "id": "PL-03",
+    "module": "参赛",
+    "title": "核实资格、提交字段和工具使用证明",
+    "role": "P",
+    "effort_days": [
+      0.5,
+      1
+    ],
+    "depends_on": [
+      "PL-01"
+    ],
+    "deliverable": "规则确认记录",
+    "acceptance": "旧代码资格、提交材料、实体及工具要求有来源；未知保持未知",
+    "release": "R0",
+    "status": "planned"
+  },
+  {
+    "id": "EN-01",
+    "module": "工程",
+    "title": "建立开发入口和原包基线",
+    "role": "S",
+    "effort_days": [
+      0.5,
+      1
+    ],
+    "depends_on": [],
+    "deliverable": "根目录忽略规则、运行入口、目录决定记录",
+    "acceptance": "原始包可校验；源码工作目录唯一；秘密和运行数据不入库",
+    "release": "R0",
+    "status": "done",
+    "progress_note": "根入口 run.py/check.py、忽略规则已落地；解压源码继续开发，原 ZIP 保留不修改。",
+    "updated_at": "2026-09-22"
+  },
+  {
+    "id": "EN-02",
+    "module": "工程",
+    "title": "固定运行依赖并复现本地检查",
+    "role": "S",
+    "effort_days": [
+      0.5,
+      1
+    ],
+    "depends_on": [
+      "EN-01"
+    ],
+    "deliverable": "环境说明、独立测试数据与日志",
+    "acceptance": "Python/Node/C++ 检查可复现；明确原生浏览器基线失败项",
+    "release": "R0",
+    "status": "done",
+    "progress_note": "Python 3.13.14 本地环境；56 项测试、JS 语法、C++ 逻辑检查及原生浏览器检查通过。",
+    "updated_at": "2026-09-22"
+  },
+  {
+    "id": "EN-03",
+    "module": "工程",
+    "title": "接入根目录 CI 和验证命令",
+    "role": "S",
+    "effort_days": [
+      0.5,
+      1
+    ],
+    "depends_on": [
+      "EN-02"
+    ],
+    "deliverable": "根 CI 工作流、构建说明",
+    "acceptance": "工作目录正确；本地等效命令通过；远端 CI 未运行不得写通过",
+    "release": "R1",
+    "status": "in_progress",
+    "progress_note": "根 CI 已配置，软件等效命令通过；远端 CI 与完整固件编译未运行。",
+    "updated_at": "2026-09-22"
+  },
+  {
+    "id": "DA-01",
+    "module": "数据",
+    "title": "确定制造版本、素材与发布契约",
+    "role": "S",
+    "effort_days": [
+      0.5,
+      1
+    ],
+    "depends_on": [
+      "PL-01",
+      "EN-02"
+    ],
+    "deliverable": "字段、状态与接口约定",
+    "acceptance": "审核版本、实物版本、公开资产快照边界统一",
+    "release": "R0",
+    "status": "in_progress",
+    "progress_note": "制造版本、实例固定引用和公开文件快照契约已实现；图片素材契约待开发。",
+    "updated_at": "2026-09-22"
+  },
+  {
+    "id": "DA-02",
+    "module": "数据",
+    "title": "实现增量迁移与旧数据兼容",
+    "role": "S",
+    "effort_days": [
+      1,
+      2
+    ],
+    "depends_on": [
+      "DA-01"
+    ],
+    "deliverable": "迁移脚本、版本表、旧数据样本",
+    "acceptance": "旧演示实例不得迁移成真实制造通过；迁移失败可用备份恢复",
+    "release": "R0",
+    "status": "done",
+    "progress_note": "增量版本表、迁移前 SQLite 一致性备份、失败回滚与旧实例标记已测试。",
+    "updated_at": "2026-09-22"
+  },
+  {
+    "id": "AC-01",
+    "module": "权限",
+    "title": "扩展新资源鉴权和删除生命周期",
+    "role": "S",
+    "effort_days": [
+      1,
+      1.5
+    ],
+    "depends_on": [
+      "DA-02"
+    ],
+    "deliverable": "鉴权与清理规则、回归用例",
+    "acceptance": "跨账号素材/版本/证据不可读写；删除记忆不破坏已制作实例",
+    "release": "R1",
+    "status": "in_progress",
+    "progress_note": "素材/版本/记录跨账号鉴权及已引用图片禁止删除已覆盖；退出和会话失效清空私人草稿。证据附件等完整生命周期仍待实现。",
+    "updated_at": "2026-09-22"
+  },
+  {
+    "id": "AS-01",
+    "module": "素材",
+    "title": "实现图片与模型资产接收存储",
+    "role": "S",
+    "effort_days": [
+      1,
+      2
+    ],
+    "depends_on": [
+      "DA-02"
+    ],
+    "deliverable": "资产接口、文件校验和暂存提交",
+    "acceptance": "JPEG/PNG/STL 等分别校验；拒绝伪格式/路径逃逸/超限文件；元数据同步",
+    "release": "R1",
+    "status": "done",
+    "progress_note": "JPEG/PNG 完整解码、元数据移除、像素/体积/配额限制、暂存提交及私有权限已实现；STL 修正版导入沿用制造模块。",
+    "updated_at": "2026-09-22"
+  },
+  {
+    "id": "AS-02",
+    "module": "素材",
+    "title": "实现参考图选择与发送确认",
+    "role": "S",
+    "effort_days": [
+      0.5,
+      1
+    ],
+    "depends_on": [
+      "AS-01"
+    ],
+    "deliverable": "参考图表单、确认视图",
+    "acceptance": "用户能看见实际发送的图文；默认不发送私人日记",
+    "release": "R1",
+    "status": "done",
+    "progress_note": "工作室支持本地参考图库、选图预览、按输入模式确认实际发送内容；图片哈希与模型配置匹配后才允许新建任务。原生浏览器专项验证通过。",
+    "updated_at": "2026-09-22"
+  },
+  {
+    "id": "TR-01",
+    "module": "Tripo",
+    "title": "真实样例核对模型与输出合同",
+    "role": "S",
+    "effort_days": [
+      1,
+      2
+    ],
+    "depends_on": [
+      "EN-02",
+      "PL-01"
+    ],
+    "deliverable": "实际请求/任务/资产兼容报告",
+    "acceptance": "在有预算和账户前提下取得真实原稿；验证预览/转换；否则记录阻塞",
+    "release": "R0",
+    "status": "in_progress",
+    "progress_note": "2026-09-22 核对官方 v3 文字/图片/文件/任务合同，v2 旧任务兼容有测试；尚无真实账户生成样本，不能宣称真实资产链路验收。",
+    "updated_at": "2026-09-22"
+  },
+  {
+    "id": "TR-02",
+    "module": "Tripo",
+    "title": "实现图片生成和参数配置",
+    "role": "S",
+    "effort_days": [
+      1,
+      2
+    ],
+    "depends_on": [
+      "TR-01",
+      "AS-01"
+    ],
+    "deliverable": "图生 provider、配置和合同测试",
+    "acceptance": "文字/图片路径分别可用；按选定模型限制输入与参数",
+    "release": "R1",
+    "status": "in_progress",
+    "progress_note": "v3 图生/文生、multipart 上传、冻结模型/API 合同及模拟供应商测试已实现；真实付费服务兼容尚未实测。",
+    "updated_at": "2026-09-22"
+  },
+  {
+    "id": "TR-03",
+    "module": "任务",
+    "title": "补齐任务恢复、有限重试和预算闸门",
+    "role": "S",
+    "effort_days": [
+      1,
+      2
+    ],
+    "depends_on": [
+      "TR-01",
+      "DA-02"
+    ],
+    "deliverable": "任务状态、错误分类和调用记录",
+    "acceptance": "重复点击不重复提交；未知提交停止；已知任务恢复；无额度拒绝新付费提交",
+    "release": "R0",
+    "status": "in_progress",
+    "progress_note": "原子预留本地累计提交次数、幂等、未知提交不重复、图片上传/查询/下载/本地准备分类恢复已实现；次数不代表金额或供应商余额，真实调用待验。",
+    "updated_at": "2026-09-22"
+  },
+  {
+    "id": "TR-04",
+    "module": "任务",
+    "title": "实现任务详情与错误恢复界面",
+    "role": "S",
+    "effort_days": [
+      0.5,
+      1
+    ],
+    "depends_on": [
+      "TR-03"
+    ],
+    "deliverable": "任务页面/卡片",
+    "acceptance": "下载/适配失败与生成失败分开；可核对任务 ID；不展示虚假进度",
+    "release": "R1",
+    "status": "done",
+    "progress_note": "工作室显示任务详情、模型/API、输入图或文字；按失败阶段恢复原任务；旧配置推断有标记。",
+    "updated_at": "2026-09-22"
+  },
+  {
+    "id": "GE-01",
+    "module": "几何",
+    "title": "建立真实资产转换路径",
+    "role": "S",
+    "effort_days": [
+      1,
+      2
+    ],
+    "depends_on": [
+      "TR-01"
+    ],
+    "deliverable": "转换器入口和兼容样例",
+    "acceptance": "所选返回格式可读取；不支持压缩明确拒绝；超时不拖死主服务",
+    "release": "R0",
+    "status": "in_progress",
+    "progress_note": "已统一服务端静态 GLB 解码，支持场景变换、稀疏/量化/交错数据及三角带/扇；压缩/动画等明确拒绝，限制解码资源。合成样例通过；真实 Tripo 返回与 OpenSCAD 成功路径待验证。",
+    "updated_at": "2026-09-22"
+  },
+  {
+    "id": "GE-02",
+    "module": "几何",
+    "title": "适配版本化固定接口和变换参数",
+    "role": "S",
+    "effort_days": [
+      1,
+      2
+    ],
+    "depends_on": [
+      "GE-01",
+      "ME-01",
+      "DA-02"
+    ],
+    "deliverable": "适配文件、变换/接口快照",
+    "acceptance": "原稿保留；朝向/缩放可追溯；改接口生成新版本",
+    "release": "R0",
+    "status": "in_progress",
+    "progress_note": "朝向、尺寸、比例写入新版本及源文件哈希；原稿保留。最终 STL 只允许安装轴旋转，旧接口差异拒绝直接适配。接口升级流程和真实转换仍待验证。",
+    "updated_at": "2026-09-22"
+  },
+  {
+    "id": "GE-03",
+    "module": "几何",
+    "title": "建立制造检查和人工复核清单",
+    "role": "S",
+    "effort_days": [
+      1,
+      2
+    ],
+    "depends_on": [
+      "GE-02"
+    ],
+    "deliverable": "检查报告、人工审核项",
+    "acceptance": "自动结果与人工项分开；无结果不等于通过；薄壁等未自动化项需人工证据",
+    "release": "R1",
+    "status": "planned"
+  },
+  {
+    "id": "UI-01",
+    "module": "前端",
+    "title": "重组核心用户路径和状态表达",
+    "role": "S",
+    "effort_days": [
+      0.5,
+      1
+    ],
+    "depends_on": [
+      "PL-01",
+      "DA-01"
+    ],
+    "deliverable": "六页信息结构、状态组件",
+    "acceptance": "房间→记忆→工作室→衣橱路径连贯；真实/模拟/待审可辨",
+    "release": "R0",
+    "status": "in_progress",
+    "progress_note": "六页基础路径、制造版本状态、参考图上传及任务详情已有可运行实现；本轮补齐版本预览与变换入口，剩余交付流程继续开发。",
+    "updated_at": "2026-09-22"
+  },
+  {
+    "id": "UI-02",
+    "module": "前端",
+    "title": "实现真实模型灯体试装",
+    "role": "S",
+    "effort_days": [
+      1,
+      2
+    ],
+    "depends_on": [
+      "GE-01",
+      "UI-01"
+    ],
+    "deliverable": "实际资产加载、原稿/适配预览",
+    "acceptance": "加载指定版本模型；单位/方向正确；失败不偷换样例",
+    "release": "R0",
+    "status": "in_progress",
+    "progress_note": "版本级原稿、装饰草案、最终 STL 预览和固定版本灯体试装已实现；原稿视图保持比例，错误可见；真实 Tripo 样例仍待验证。",
+    "updated_at": "2026-09-22"
+  },
+  {
+    "id": "UI-03",
+    "module": "前端",
+    "title": "增加朝向比例调整与移动端交互",
+    "role": "S",
+    "effort_days": [
+      1,
+      1.5
+    ],
+    "depends_on": [
+      "UI-02",
+      "GE-02"
+    ],
+    "deliverable": "有限变换控件、手机布局",
+    "acceptance": "确认后保存变换快照；制造尺寸由版本记录；移动端可操作",
+    "release": "R1",
+    "status": "in_progress",
+    "progress_note": "有限变换表单、说明和确认建立新草案；浏览器验证原稿适配、STL 旋转及 390px 预览布局。手机真机和更完整编辑交互未验收。",
+    "updated_at": "2026-09-22"
+  },
+  {
+    "id": "MF-01",
+    "module": "制造",
+    "title": "实现不可变制造版本与修正版导入",
+    "role": "S",
+    "effort_days": [
+      1.5,
+      2.5
+    ],
+    "depends_on": [
+      "DA-02",
+      "GE-01"
+    ],
+    "deliverable": "版本接口、文件哈希、来源关系",
+    "acceptance": "修改几何生成新版本；已批准版本不可原地改文件",
+    "release": "R0",
+    "status": "done",
+    "progress_note": "不可变文件快照、SHA-256、版本递增、来源记录、STL 修正版导入及并发测试通过；真实 Tripo 样例验收独立待办。",
+    "updated_at": "2026-09-22"
+  },
+  {
+    "id": "MF-02",
+    "module": "制造",
+    "title": "实现制造审批、撤销和版本制造包",
+    "role": "S",
+    "effort_days": [
+      1,
+      2
+    ],
+    "depends_on": [
+      "MF-01"
+    ],
+    "deliverable": "审批接口、版本 ZIP",
+    "acceptance": "缺最终 STL 不批准；包内哈希与批准版本一致；撤销阻止新制作",
+    "release": "R0",
+    "status": "done",
+    "progress_note": "提交/批准/驳回/撤销、基础网格门槛、人工项及固定版本 ZIP 已实现并回归。",
+    "updated_at": "2026-09-22"
+  },
+  {
+    "id": "MF-03",
+    "module": "制造",
+    "title": "实现制作批次、证据与返工",
+    "role": "S",
+    "effort_days": [
+      1,
+      2
+    ],
+    "depends_on": [
+      "MF-02"
+    ],
+    "deliverable": "制作日志、证据表单",
+    "acceptance": "材料/设备/尺寸/照片可记录；失败不覆盖；重制或改版关系清晰",
+    "release": "R1",
+    "status": "in_progress",
+    "progress_note": "照片、测量项目/单位/方法、尝试编号、同版本重试与改版重制关联已实现；并发提交去重、权限、哈希、回滚及旧记录迁移已验证。尚无真实制作证据，完整照片备份恢复与容量整理待补。",
+    "updated_at": "2026-09-22"
+  },
+  {
+    "id": "MF-04",
+    "module": "制造",
+    "title": "实现衣橱版本与制作详情界面",
+    "role": "S",
+    "effort_days": [
+      1,
+      1.5
+    ],
+    "depends_on": [
+      "MF-02",
+      "UI-01"
+    ],
+    "deliverable": "版本选择、检查与制作详情",
+    "acceptance": "用户知道当前版本、能否制作以及下一步人工动作",
+    "release": "R1",
+    "status": "in_progress",
+    "progress_note": "制作记录详情展示照片、测量和尝试历史；独立于当前设备选择提供记录、失败、重试、关联重制表单；移动表单和双向来源跳转通过。实体设备生命周期仍待补。",
+    "updated_at": "2026-09-22"
+  },
+  {
+    "id": "DV-01",
+    "module": "设备",
+    "title": "固定实例绑定和协议兼容规则",
+    "role": "S",
+    "effort_days": [
+      0.5,
+      1
+    ],
+    "depends_on": [
+      "MF-02"
+    ],
+    "deliverable": "协议补充、绑定门槛",
+    "acceptance": "真实绑定只接受已验证实例；协议变化不默默破坏旧固件",
+    "release": "R0",
+    "status": "in_progress",
+    "progress_note": "真实绑定要求已验证实例及有效批准版本；轮询/事件/回执事务化且幂等；未与实体固件联调。",
+    "updated_at": "2026-09-22"
+  },
+  {
+    "id": "DV-02",
+    "module": "设备",
+    "title": "联调回执、离线、去重和凭据轮换",
+    "role": "S",
+    "effort_days": [
+      1,
+      2
+    ],
+    "depends_on": [
+      "DV-01",
+      "FW-04"
+    ],
+    "deliverable": "端到端日志、真实设备回归",
+    "acceptance": "过期不执行、重试不重复记录；未知标签和旧 token 正确处理",
+    "release": "R0",
+    "status": "in_progress",
+    "progress_note": "服务端模拟覆盖回执、过期、重复事件、绑定读回；实体硬件部分延期。",
+    "updated_at": "2026-09-22"
+  },
+  {
+    "id": "DV-03",
+    "module": "设备",
+    "title": "补齐安装移除与房间状态展示",
+    "role": "S",
+    "effort_days": [
+      0.5,
+      1
+    ],
+    "depends_on": [
+      "DV-02",
+      "UI-02"
+    ],
+    "deliverable": "安装时间线、实际状态界面",
+    "acceptance": "用户可分辨期望状态和设备实际状态；移除规则一致",
+    "release": "R1",
+    "status": "planned"
+  },
+  {
+    "id": "SH-01",
+    "module": "分享",
+    "title": "公开版本快照和二创来源",
+    "role": "S",
+    "effort_days": [
+      1,
+      2
+    ],
+    "depends_on": [
+      "MF-01",
+      "AC-01"
+    ],
+    "deliverable": "发布契约、下载允许列表、二创入口",
+    "acceptance": "公开不泄露原始图片/日记/私人文件；后续导入不自动公开",
+    "release": "R1",
+    "status": "in_progress",
+    "progress_note": "公开固定文件快照、允许列表与二创来源已实现；图片资产和公开文案快照待补。",
+    "updated_at": "2026-09-22"
+  },
+  {
+    "id": "SH-02",
+    "module": "分享",
+    "title": "验证两账号分享与撤回体验",
+    "role": "S",
+    "effort_days": [
+      0.5,
+      1
+    ],
+    "depends_on": [
+      "SH-01"
+    ],
+    "deliverable": "双账号操作和回归记录",
+    "acceptance": "保留二创来源；撤回阻止新访问，已下载不声称可追回",
+    "release": "R1",
+    "status": "in_progress",
+    "progress_note": "双账号公开与二创浏览器流程、服务端撤销访问回归通过；完整撤回 UI 用例待补。",
+    "updated_at": "2026-09-22"
+  },
+  {
+    "id": "FW-01",
+    "module": "固件",
+    "title": "固定板卡依赖并全量编译",
+    "role": "H",
+    "effort_days": [
+      0.5,
+      1
+    ],
+    "depends_on": [
+      "EN-02",
+      "PL-02"
+    ],
+    "deliverable": "PlatformIO 构建日志、固件标识",
+    "acceptance": "完整 Wi-Fi/PN532/FreeRTOS 构建成功；不以纯逻辑测试代替",
+    "release": "R0",
+    "status": "planned"
+  },
+  {
+    "id": "HW-01",
+    "module": "电气",
+    "title": "定型供电、驱动和测温接线",
+    "role": "H",
+    "effort_days": [
+      1,
+      2
+    ],
+    "depends_on": [
+      "PL-02"
+    ],
+    "deliverable": "实物 BOM、接线版本、检查记录",
+    "acceptance": "实际电气保护、限流/驱动适配、线束固定和供电路径已核查",
+    "release": "R0",
+    "status": "deferred_hardware",
+    "progress_note": "2026-09-22 用户确认目前没有硬件，先推进软件；此项实物工作暂缓，未验收。",
+    "updated_at": "2026-09-22"
+  },
+  {
+    "id": "HW-02",
+    "module": "电气",
+    "title": "主灯台架与异常传感器验证",
+    "role": "H",
+    "effort_days": [
+      1,
+      2
+    ],
+    "depends_on": [
+      "HW-01",
+      "FW-01"
+    ],
+    "deliverable": "主灯/按键/测温台架记录",
+    "acceptance": "按键调光有效；传感器异常与温度故障按条件关闭",
+    "release": "R0",
+    "status": "deferred_hardware",
+    "progress_note": "2026-09-22 用户确认目前没有硬件，先推进软件；此项实物工作暂缓，未验收。",
+    "updated_at": "2026-09-22"
+  },
+  {
+    "id": "FW-02",
+    "module": "固件",
+    "title": "NFC 写入读回与持久缓存验证",
+    "role": "H",
+    "effort_days": [
+      1,
+      2
+    ],
+    "depends_on": [
+      "FW-01",
+      "HW-01"
+    ],
+    "deliverable": "NFC 样件、串口与读回记录",
+    "acceptance": "中断写入不假报绑定成功；缓存已知标签可离线识别",
+    "release": "R0",
+    "status": "deferred_hardware",
+    "progress_note": "2026-09-22 用户确认目前没有硬件，先推进软件；此项实物工作暂缓，未验收。",
+    "updated_at": "2026-09-22"
+  },
+  {
+    "id": "FW-03",
+    "module": "固件",
+    "title": "重连重启与队列边界验证",
+    "role": "H",
+    "effort_days": [
+      1,
+      2
+    ],
+    "depends_on": [
+      "FW-02",
+      "HW-02"
+    ],
+    "deliverable": "故障注入表、固件修复",
+    "acceptance": "网络阻塞不影响保护；队列满和掉电事件丢失边界明确",
+    "release": "R1",
+    "status": "deferred_hardware",
+    "progress_note": "2026-09-22 用户确认目前没有硬件，先推进软件；此项实物工作暂缓，未验收。",
+    "updated_at": "2026-09-22"
+  },
+  {
+    "id": "FW-04",
+    "module": "固件",
+    "title": "与服务联通真实灯光和绑定命令",
+    "role": "H",
+    "effort_days": [
+      1,
+      2
+    ],
+    "depends_on": [
+      "FW-02",
+      "HW-02",
+      "DV-01"
+    ],
+    "deliverable": "真实 poll/ack/绑定证据",
+    "acceptance": "设备身份正确；指令/回执对应；模拟凭据不能冒充真实",
+    "release": "R0",
+    "status": "deferred_hardware",
+    "progress_note": "2026-09-22 用户确认目前没有硬件，先推进软件；此项实物工作暂缓，未验收。",
+    "updated_at": "2026-09-22"
+  },
+  {
+    "id": "ME-01",
+    "module": "结构",
+    "title": "测量并冻结首版安装接口",
+    "role": "H",
+    "effort_days": [
+      1,
+      2
+    ],
+    "depends_on": [
+      "PL-02"
+    ],
+    "deliverable": "实测尺寸、接口草案版本",
+    "acceptance": "CAD/JSON/几何常量一致；包内尺寸仅基线，未测不得定型",
+    "release": "R0",
+    "status": "deferred_hardware",
+    "progress_note": "2026-09-22 用户确认目前没有硬件，先推进软件；此项实物工作暂缓，未验收。",
+    "updated_at": "2026-09-22"
+  },
+  {
+    "id": "ME-02",
+    "module": "结构",
+    "title": "修订主灯固定、底座与线束结构",
+    "role": "H",
+    "effort_days": [
+      1.5,
+      3
+    ],
+    "depends_on": [
+      "ME-01",
+      "HW-01"
+    ],
+    "deliverable": "修订 CAD、装配图、导出 STL",
+    "acceptance": "扩散片/灯板/模块可靠保持；固定与重心有验证计划",
+    "release": "R0",
+    "status": "deferred_hardware",
+    "progress_note": "2026-09-22 用户确认目前没有硬件，先推进软件；此项实物工作暂缓，未验收。",
+    "updated_at": "2026-09-22"
+  },
+  {
+    "id": "ME-03",
+    "module": "结构",
+    "title": "配合试片打印测量与接口定版",
+    "role": "H",
+    "effort_days": [
+      1,
+      2
+    ],
+    "depends_on": [
+      "ME-01"
+    ],
+    "deliverable": "试片、实测、接口修订",
+    "acceptance": "实际材料/后处理条件下配合通过；变更反馈到代码适配",
+    "release": "R0",
+    "status": "deferred_hardware",
+    "progress_note": "2026-09-22 用户确认目前没有硬件，先推进软件；此项实物工作暂缓，未验收。",
+    "updated_at": "2026-09-22"
+  },
+  {
+    "id": "ME-04",
+    "module": "结构",
+    "title": "默认向日葵外装打印与装配",
+    "role": "H",
+    "effort_days": [
+      1,
+      2
+    ],
+    "depends_on": [
+      "ME-02",
+      "ME-03"
+    ],
+    "deliverable": "默认外装和装配记录",
+    "acceptance": "同一灯体可靠固定；标签位置无干涉；不靠未验证胶点承重",
+    "release": "R0",
+    "status": "deferred_hardware",
+    "progress_note": "2026-09-22 用户确认目前没有硬件，先推进软件；此项实物工作暂缓，未验收。",
+    "updated_at": "2026-09-22"
+  },
+  {
+    "id": "ME-05",
+    "module": "制造",
+    "title": "真实 AI 外装工程修正",
+    "role": "H",
+    "effort_days": [
+      1,
+      3
+    ],
+    "depends_on": [
+      "GE-02",
+      "ME-03",
+      "MF-01"
+    ],
+    "deliverable": "修正版、人工审核证据",
+    "acceptance": "装饰连通/配合和可制造性人工通过；保留原稿及修改说明",
+    "release": "R0",
+    "status": "deferred_hardware",
+    "progress_note": "2026-09-22 用户确认目前没有硬件，先推进软件；此项实物工作暂缓，未验收。",
+    "updated_at": "2026-09-22"
+  },
+  {
+    "id": "ME-06",
+    "module": "制造",
+    "title": "AI 外装打印后处理与整机装配",
+    "role": "H",
+    "effort_days": [
+      1,
+      2
+    ],
+    "depends_on": [
+      "ME-05",
+      "MF-02",
+      "ME-04"
+    ],
+    "deliverable": "真实 AI 外装、实例与照片",
+    "acceptance": "来自固定制造版本；实际安装成功；失败记录完整",
+    "release": "R0",
+    "status": "deferred_hardware",
+    "progress_note": "2026-09-22 用户确认目前没有硬件，先推进软件；此项实物工作暂缓，未验收。",
+    "updated_at": "2026-09-22"
+  },
+  {
+    "id": "OP-01",
+    "module": "光学",
+    "title": "分体投影光学可行性台架",
+    "role": "H",
+    "effort_days": [
+      1,
+      2
+    ],
+    "depends_on": [
+      "PL-02",
+      "HW-01"
+    ],
+    "deliverable": "距离/环境/图案/照片记录",
+    "acceptance": "在约定演示条件下可辨识；不合格则停止整机投影承诺",
+    "release": "R1",
+    "status": "deferred_hardware",
+    "progress_note": "2026-09-22 用户确认目前没有硬件，先推进软件；此项实物工作暂缓，未验收。",
+    "updated_at": "2026-09-22"
+  },
+  {
+    "id": "OP-02",
+    "module": "光学",
+    "title": "修订投影支架镜片保持及热保护",
+    "role": "H",
+    "effort_days": [
+      1,
+      2
+    ],
+    "depends_on": [
+      "OP-01",
+      "ME-01"
+    ],
+    "deliverable": "投影 CAD/线束/保护方案",
+    "acceptance": "支架支承可靠；镜片保持明确；双热源分别验证",
+    "release": "R1",
+    "status": "deferred_hardware",
+    "progress_note": "2026-09-22 用户确认目前没有硬件，先推进软件；此项实物工作暂缓，未验收。",
+    "updated_at": "2026-09-22"
+  },
+  {
+    "id": "OP-03",
+    "module": "光学",
+    "title": "集成手动换片与两路调光",
+    "role": "H",
+    "effort_days": [
+      1,
+      2
+    ],
+    "depends_on": [
+      "OP-02",
+      "FW-04"
+    ],
+    "deliverable": "投影实物和联调日志",
+    "acceptance": "实体换片改变图案；超时关闭；不宣称 NFC 自动换片",
+    "release": "R1",
+    "status": "deferred_hardware",
+    "progress_note": "2026-09-22 用户确认目前没有硬件，先推进软件；此项实物工作暂缓，未验收。",
+    "updated_at": "2026-09-22"
+  },
+  {
+    "id": "QA-01",
+    "module": "质量",
+    "title": "建立关键验收场景和证据目录",
+    "role": "P",
+    "effort_days": [
+      0.5,
+      1
+    ],
+    "depends_on": [
+      "PL-01",
+      "DA-01"
+    ],
+    "deliverable": "场景矩阵、记录模板",
+    "acceptance": "每项有输入、步骤、预期、环境、版本、证据位置",
+    "release": "R0",
+    "status": "planned"
+  },
+  {
+    "id": "QA-02",
+    "module": "质量",
+    "title": "执行权限任务制造关键自动回归",
+    "role": "S",
+    "effort_days": [
+      1,
+      2
+    ],
+    "depends_on": [
+      "MF-02",
+      "TR-03",
+      "DV-01"
+    ],
+    "deliverable": "单元/HTTP/集成日志",
+    "acceptance": "拒绝绕过制造门槛、跨账号、重复提交等关键路径通过",
+    "release": "R0",
+    "status": "in_progress",
+    "progress_note": "本轮新增图片、v2/v3 合同、恢复、并发额度和 HTTP 用例；完整检查日志见 references-checks.log，真实硬件与付费服务不在本轮通过范围。",
+    "updated_at": "2026-09-22"
+  },
+  {
+    "id": "QA-03",
+    "module": "质量",
+    "title": "执行真实浏览器与移动端回归",
+    "role": "S",
+    "effort_days": [
+      1,
+      2
+    ],
+    "depends_on": [
+      "AS-02",
+      "MF-04",
+      "DV-03",
+      "SH-02"
+    ],
+    "deliverable": "原生浏览器记录和截图",
+    "acceptance": "真实网络/模块/CSP/实际模型/下载通过；目标设备兼容明确",
+    "release": "R1",
+    "status": "in_progress",
+    "progress_note": "原生浏览器主流程 17 项和图片专项 7 项通过。图片生成专项为隔离真实 HTTP 服务且 Worker 关闭，不冒充 Tripo 实测。",
+    "updated_at": "2026-09-22"
+  },
+  {
+    "id": "QA-04",
+    "module": "质量",
+    "title": "执行整机换装稳定性与热/结构验证",
+    "role": "H",
+    "effort_days": [
+      1.5,
+      3
+    ],
+    "depends_on": [
+      "ME-06",
+      "FW-04"
+    ],
+    "deliverable": "实物测试日志、问题单",
+    "acceptance": "20 次换装目标至少19次；故障关闭/安装固定按协议通过",
+    "release": "R0",
+    "status": "deferred_hardware",
+    "progress_note": "2026-09-22 用户确认目前没有硬件，先推进软件；此项实物工作暂缓，未验收。",
+    "updated_at": "2026-09-22"
+  },
+  {
+    "id": "QA-05",
+    "module": "质量",
+    "title": "开展3–5人试用并整理问题",
+    "role": "P",
+    "effort_days": [
+      1,
+      2
+    ],
+    "depends_on": [
+      "QA-03",
+      "QA-04"
+    ],
+    "deliverable": "试用记录、优先级与复测结果",
+    "acceptance": "记录完成/卡点/解释次数/再创作意愿；不宣称统计性市场验证",
+    "release": "R1",
+    "status": "planned"
+  },
+  {
+    "id": "QA-06",
+    "module": "质量",
+    "title": "完整 MVP 端到端回归及准入评审",
+    "role": "S",
+    "effort_days": [
+      1,
+      2
+    ],
+    "depends_on": [
+      "QA-03",
+      "QA-04",
+      "QA-05",
+      "OP-03",
+      "FW-03"
+    ],
+    "deliverable": "发布检查记录",
+    "acceptance": "所有 R1 必做项有证据；未通过项决定延期或改范围",
+    "release": "R1",
+    "status": "planned"
+  },
+  {
+    "id": "RL-01",
+    "module": "运行",
+    "title": "实现一致性备份恢复和清理规程",
+    "role": "S",
+    "effort_days": [
+      0.5,
+      1.5
+    ],
+    "depends_on": [
+      "MF-01",
+      "DA-02"
+    ],
+    "deliverable": "备份/恢复工具与演练",
+    "acceptance": "数据库/资产版本一致；恢复后关系和哈希正确；有引用文件不误删",
+    "release": "R0",
+    "status": "in_progress",
+    "progress_note": "迁移前数据库备份已实现；全量数据库加资产备份恢复工具尚未实现。",
+    "updated_at": "2026-09-22"
+  },
+  {
+    "id": "RL-02",
+    "module": "运行",
+    "title": "设备与 API 日志及诊断包",
+    "role": "S",
+    "effort_days": [
+      0.5,
+      1
+    ],
+    "depends_on": [
+      "TR-03",
+      "DV-02"
+    ],
+    "deliverable": "脱敏诊断信息",
+    "acceptance": "任务/设备/版本可关联；不泄露密钥、原图或日记",
+    "release": "R1",
+    "status": "planned"
+  },
+  {
+    "id": "RL-03",
+    "module": "运行",
+    "title": "打包、升级与本地演示交接",
+    "role": "S",
+    "effort_days": [
+      0.5,
+      1
+    ],
+    "depends_on": [
+      "QA-02",
+      "RL-01"
+    ],
+    "deliverable": "启动包、运行说明、版本清单",
+    "acceptance": "干净目录可启动；不使用个人 .env；可按说明恢复",
+    "release": "R0",
+    "status": "planned"
+  },
+  {
+    "id": "DM-01",
+    "module": "展示",
+    "title": "制作核心版流程录像与素材板",
+    "role": "P",
+    "effort_days": [
+      1,
+      2
+    ],
+    "depends_on": [
+      "ME-06",
+      "DV-02",
+      "QA-04"
+    ],
+    "deliverable": "真实流程视频、模型前后对比",
+    "acceptance": "录像任务/版本/实物一致；历史打印明确标识；不假即时生成打印",
+    "release": "R0",
+    "status": "planned"
+  },
+  {
+    "id": "DM-02",
+    "module": "展示",
+    "title": "核对并提交参赛交付",
+    "role": "P",
+    "effort_days": [
+      0.5,
+      1
+    ],
+    "depends_on": [
+      "PL-03",
+      "DM-01",
+      "RL-03"
+    ],
+    "deliverable": "提交清单、回执",
+    "acceptance": "演示可访问/可运行；链接附件有效；提交需用户授权",
+    "release": "R0",
+    "status": "planned"
+  },
+  {
+    "id": "DM-03",
+    "module": "展示",
+    "title": "完善完整 MVP 使用和制作手册",
+    "role": "P",
+    "effort_days": [
+      0.5,
+      1
+    ],
+    "depends_on": [
+      "QA-06"
+    ],
+    "deliverable": "用户说明、制作和已知限制",
+    "acceptance": "非开发人员可复现操作；明确人工步骤、材料与维护要求",
+    "release": "R1",
+    "status": "planned"
+  },
+  {
+    "id": "EX-01",
+    "module": "增强",
+    "title": "第三套外装与更多真实生成样本",
+    "role": "H",
+    "effort_days": [
+      1,
+      3
+    ],
+    "depends_on": [
+      "QA-04"
+    ],
+    "deliverable": "第三套外装、样例统计",
+    "acceptance": "独立制造记录；多样例检查；不影响主灯稳定性",
+    "release": "R2",
+    "status": "deferred_hardware",
+    "progress_note": "2026-09-22 用户确认目前没有硬件，先推进软件；此项实物工作暂缓，未验收。",
+    "updated_at": "2026-09-22"
+  },
+  {
+    "id": "EX-02",
+    "module": "增强",
+    "title": "自动化重复几何修正与体验润色",
+    "role": "S",
+    "effort_days": [
+      2,
+      4
+    ],
+    "depends_on": [
+      "QA-05",
+      "ME-05"
+    ],
+    "deliverable": "实测高频问题的针对性改进",
+    "acceptance": "只自动化已验证步骤；前后耗时和成功率可对比",
+    "release": "R2",
+    "status": "planned"
+  },
+  {
+    "id": "EX-03",
+    "module": "增强",
+    "title": "公网访问方案与部署实现",
+    "role": "S",
+    "effort_days": [
+      3,
+      5
+    ],
+    "depends_on": [
+      "QA-06",
+      "AC-01"
+    ],
+    "deliverable": "HTTPS/服务/限额/运维方案及独立验收",
+    "acceptance": "仅在确需公网且授权后执行；不直接暴露原本机服务",
+    "release": "R2",
+    "status": "planned"
+  }
+]

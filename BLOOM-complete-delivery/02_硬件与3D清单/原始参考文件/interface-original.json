@@ -1,0 +1,25 @@
+{
+  "version": "bloom-clamp-v1",
+  "units": "mm",
+  "crown_bore_diameter": 76.0,
+  "head_pilot_diameter": 75.0,
+  "bearing_zone_radii": [
+    38.0,
+    43.0
+  ],
+  "bearing_thickness": 4.0,
+  "max_outer_diameter": 196.0,
+  "max_depth": 24.0,
+  "retainer_outer_diameter": 86.0,
+  "retainer_screw_bcd": 70.0,
+  "retainer_screws": "3 x M3 through bolts + washers + nuts",
+  "nfc_tag_center_xy": [
+    0.0,
+    -55.0
+  ],
+  "nfc_tag_max_size": [
+    22.0,
+    22.0
+  ],
+  "qualification": "prototype; fit, retention, RF and thermal tests required"
+}

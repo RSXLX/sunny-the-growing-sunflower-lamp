@@ -1,0 +1,208 @@
+{
+  "date": "2026-09-22",
+  "python_tests": 102,
+  "javascript_syntax": "passed: app.js, viewer.js, fabrication.js",
+  "portable_firmware_logic": "passed",
+  "runtime": {
+    "schema_versions": [
+      1,
+      2,
+      3
+    ],
+    "integrity": "ok",
+    "foreign_key_errors": [],
+    "fabrication_photos": 0
+  },
+  "browser_reports": {
+    "fabrication-browser": {
+      "checks": [
+        {
+          "name": "mobile form saves measurements and canonical photo on the failed attempt",
+          "passed": true
+        },
+        {
+          "name": "network retry does not duplicate a record or attachment",
+          "passed": true
+        },
+        {
+          "name": "same-version retry keeps failure photo and increments attempt history",
+          "passed": true
+        },
+        {
+          "name": "remake pins the selected version and links back without overwriting the failed instance",
+          "passed": true
+        },
+        {
+          "name": "another account cannot read the private evidence or fabrication history",
+          "passed": true
+        },
+        {
+          "name": "no uncaught JavaScript exceptions",
+          "passed": true
+        }
+      ],
+      "page_errors": [],
+      "mode": "native HTTP with synthetic evidence fixtures and no workers",
+      "paid_tripo_tested": false,
+      "hardware_tested": false,
+      "passed": true
+    },
+    "fabrication-regression": {
+      "mode": "native browser HTTP",
+      "checks": [
+        {
+          "name": "login and actual STL rendering",
+          "passed": true
+        },
+        {
+          "name": "page memory",
+          "passed": true
+        },
+        {
+          "name": "page studio",
+          "passed": true
+        },
+        {
+          "name": "page wardrobe",
+          "passed": true
+        },
+        {
+          "name": "page garden",
+          "passed": true
+        },
+        {
+          "name": "page hardware",
+          "passed": true
+        },
+        {
+          "name": "create private memory",
+          "passed": true
+        },
+        {
+          "name": "generate persisted parametric model",
+          "passed": true
+        },
+        {
+          "name": "review gate",
+          "passed": true
+        },
+        {
+          "name": "download real manufacturing ZIP",
+          "passed": true
+        },
+        {
+          "name": "immutable manufacturing version and explicit approval gate",
+          "passed": true
+        },
+        {
+          "name": "simulated NFC bind, readback acknowledgment and install",
+          "passed": true
+        },
+        {
+          "name": "explicit publish consent",
+          "passed": true
+        },
+        {
+          "name": "second account cannot see private memory",
+          "passed": true
+        },
+        {
+          "name": "second-account remix with provenance",
+          "passed": true
+        },
+        {
+          "name": "390px mobile layout has no horizontal overflow",
+          "passed": true
+        },
+        {
+          "name": "no uncaught JavaScript exceptions",
+          "passed": true
+        }
+      ],
+      "page_errors": [],
+      "hardware_tested": false,
+      "paid_tripo_tested": false,
+      "passed": true
+    },
+    "fabrication-reference-regression": {
+      "checks": [
+        {
+          "name": "native upload, canonical image preview and metadata removal",
+          "passed": true
+        },
+        {
+          "name": "generation confirmation displays only actual outgoing image",
+          "passed": true
+        },
+        {
+          "name": "one confirmed job, exact image hash, persistent idempotency and allowance",
+          "passed": true
+        },
+        {
+          "name": "page reload preserves queued task configuration and reference",
+          "passed": true
+        },
+        {
+          "name": "referenced image cannot be deleted",
+          "passed": true
+        },
+        {
+          "name": "second account has no reference access or retained private draft",
+          "passed": true
+        },
+        {
+          "name": "mobile studio layout and no uncaught JavaScript errors",
+          "passed": true
+        }
+      ],
+      "page_errors": [],
+      "paid_tripo_tested": false,
+      "hardware_tested": false,
+      "mode": "native HTTP against isolated fixture server; generation worker disabled",
+      "passed": true
+    }
+  },
+  "notes": [
+    "Reference browser regression observed a client TCP reset on reload; all 7 checks passed.",
+    "Fabrication photos and physical measurements are synthetic isolated fixtures."
+  ],
+  "not_verified": [
+    "actual physical fabrication",
+    "real Tripo generation",
+    "full PlatformIO build",
+    "mobile device",
+    "remote CI",
+    "complete backup and restore"
+  ],
+  "source_sha256": {
+    "BLOOM-complete-delivery/01_MVP项目/growing-lamp-mvp/app/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "BLOOM-complete-delivery/01_MVP项目/growing-lamp-mvp/app/adaptation.py": "018925acf7aa819e1d85e7fd09add48886ff8ba58e414f0f0ace21d3ae9524af",
+    "BLOOM-complete-delivery/01_MVP项目/growing-lamp-mvp/app/assets.py": "3ffa0a0a03629ca911c1a9b60268e941bd2ac9d9e7e64665151e348a7af78e05",
+    "BLOOM-complete-delivery/01_MVP项目/growing-lamp-mvp/app/errors.py": "f0a448a8c7abc26174c12a118681b6aa5afb7a2434f00a2d02c1edc8c9f08d20",
+    "BLOOM-complete-delivery/01_MVP项目/growing-lamp-mvp/app/fabrication.py": "deec9f3ad47532269d24d91b5015edc6783e4d713378506771f5f12e769495ea",
+    "BLOOM-complete-delivery/01_MVP项目/growing-lamp-mvp/app/geometry.py": "41d919202b92a91c0c35e211814cd33a118df2f05a52973f575baceb44773701",
+    "BLOOM-complete-delivery/01_MVP项目/growing-lamp-mvp/app/gltf.py": "978f41563f0c048635d1dcd7fab4f6197b9827b14aa1cf5b6943b6296bb9ca50",
+    "BLOOM-complete-delivery/01_MVP项目/growing-lamp-mvp/app/manufacturing.py": "5b7e68508ae441d5e91ed0d8dd0546ec9409964a5be5e987b5cf0e953a91008a",
+    "BLOOM-complete-delivery/01_MVP项目/growing-lamp-mvp/app/migrations.py": "3a54e331a31679ffba7abfb5e5c811c840cfb243bb4da35c7672a66ab306d7c6",
+    "BLOOM-complete-delivery/01_MVP项目/growing-lamp-mvp/app/providers.py": "95d6b0845bc2be1f28e6dadf387c8e478da4fe4d5b0c49c7daeb4649d9efd52c",
+    "BLOOM-complete-delivery/01_MVP项目/growing-lamp-mvp/app/server.py": "4ac7583cd427a217843f3c8d47cd3dcf50a497b0543dd16ab6ced36fbe8cd466",
+    "BLOOM-complete-delivery/01_MVP项目/growing-lamp-mvp/app/service.py": "6e8d831eb1d45a2c602bacae738eaf4716f921b9911b7c3cca1820379c859d8d",
+    "BLOOM-complete-delivery/01_MVP项目/growing-lamp-mvp/app/store.py": "2c0e45b50b314755d6b0b8c3dcd216b512ebc6cdcc0d5d3f735623f7bd548dba",
+    "BLOOM-complete-delivery/01_MVP项目/growing-lamp-mvp/web/app.js": "bc12890869d85d5ceb0d35e3729eac4122ba30901c6456681c1242ca9ed577c9",
+    "BLOOM-complete-delivery/01_MVP项目/growing-lamp-mvp/web/fabrication.js": "18893d6693c84be79b67816574478132bd440ad2079fd7e0df4b0e5ff236b1a9",
+    "BLOOM-complete-delivery/01_MVP项目/growing-lamp-mvp/web/viewer.js": "d7ba5c1a09160b47c686ba16b837764260d14f17f6d39a4c500caeaa8f057f2f",
+    "BLOOM-complete-delivery/01_MVP项目/growing-lamp-mvp/web/style.css": "c3d8e1eaae60805382fd1de9187974b8ef9c052670fc3f7b766fdc0ab2d0abb2",
+    "BLOOM-complete-delivery/01_MVP项目/growing-lamp-mvp/tests/browser_fabrication.py": "aaf5a49a5d10791bc722a52a2fa066924eb4dbafd2c70652448602a0c2b5a42e",
+    "BLOOM-complete-delivery/01_MVP项目/growing-lamp-mvp/tests/browser_geometry.py": "cb302039f1ad5c45de7c17c90784af9280c8fed64d1adb4ba1fe48132eb2666f",
+    "BLOOM-complete-delivery/01_MVP项目/growing-lamp-mvp/tests/browser_references.py": "a48e385601444873964a27ef49a4801c4c7a1c63849172ac1bd15f634c1da610",
+    "BLOOM-complete-delivery/01_MVP项目/growing-lamp-mvp/tests/browser_smoke.py": "17983753712d61cdefba2b7a3aa7fc61ab1081cb7075d1188f6ef1b8245ba53e",
+    "BLOOM-complete-delivery/01_MVP项目/growing-lamp-mvp/tests/gltf_fixtures.py": "d4eddaaaf01f56988a7613b29cd5fab7d3d039cc1addcb2907391dd3ea5035b7",
+    "BLOOM-complete-delivery/01_MVP项目/growing-lamp-mvp/tests/test_core.py": "d8ac09908995f2ab3d13bb7ef8f9edebf6144a9b750f419a77b1f1ab95a7e96d",
+    "BLOOM-complete-delivery/01_MVP项目/growing-lamp-mvp/tests/test_fabrication.py": "b4ff00c1a49d6eadf3e6aad8490c0174cc20beb08001f715742580be7f1c18ab",
+    "BLOOM-complete-delivery/01_MVP项目/growing-lamp-mvp/tests/test_geometry.py": "211bc7a5da5c6b3b1931df04a1d3e1d4c6efdec75436ecb3ef0b40af45f2664f",
+    "BLOOM-complete-delivery/01_MVP项目/growing-lamp-mvp/tests/test_http.py": "34554deab2ad4ba7f33cb34c44f3fe5c94890ead0e4247abd26c32611899eddf",
+    "BLOOM-complete-delivery/01_MVP项目/growing-lamp-mvp/tests/test_manufacturing.py": "ff88088fd244715413db84457c666a94034f0ee8cbb53fa673d86477a82a0125",
+    "BLOOM-complete-delivery/01_MVP项目/growing-lamp-mvp/tests/test_references.py": "0dfbf363e9dd4165cf706c710bdf618d704c7373a480df9fa3df8a07630e2e6e",
+    "BLOOM-complete-delivery/01_MVP项目/growing-lamp-mvp/tools/check.py": "7488156b47b78626a674713cb0cb9a84c047178a9ccc549a1cbef04f41bad949"
+  }
+}

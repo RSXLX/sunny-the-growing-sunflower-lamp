@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="1150" viewBox="0 0 1500 1150">
+<defs><style>text{font-family:Arial,sans-serif;fill:#dee6da}.title{font-size:30px;font-weight:700}.sub{font-size:16px;fill:#a8b6a4}.head{font-size:20px;font-weight:700}.label{font-size:15px}.small{font-size:13px;fill:#bcc8b8}.box{fill:#202921;stroke:#788975;stroke-width:1.5;rx:14}.wire{fill:none;stroke-width:3;stroke-linejoin:round}.gnd{stroke:#8aa4ae}.power{stroke:#d8af67}.logic{stroke:#a7c788}.sensor{stroke:#b49ed4}</style></defs>
+<rect width="1500" height="1150" fill="#141b16"/>
+<text x="48" y="60" class="title">BLOOM / prototype wiring harness v1</text>
+<text x="48" y="91" class="sub">ESP32 DevKit V1 + PN532 SPI + two current-limited 5 V light modules + NTC interlock</text>
+<text x="48" y="119" class="small">Design artifact — not an assembled or certified circuit. Common GND. No mains wiring. Check your module pinout before power-on.</text>
+<rect x="48" y="154" width="1404" height="118" class="box"/>
+<text x="73" y="187" class="head">POWER DOMAIN</text>
+<text x="73" y="220" class="label">External regulated 5 V / 2 A</text><text x="405" y="220" class="label">1.5 A fuse + reverse-polarity protection</text><text x="1020" y="220" class="label">Protected +5V rail</text>
+<path d="M325 215H390 M775 215H995" class="wire power"/>
+<text x="73" y="249" class="small">Use a fused/protected module with a verified pinout. Never connect external 5 V and a PC USB power source at the same time.</text>
+<rect x="48" y="320" width="440" height="445" class="box"/>
+<text x="72" y="357" class="head">ESP32 DEVKIT / 3.3 V LOGIC</text>
+<text x="72" y="390" class="small">Use ADC1 GPIO34; GPIO34 has no pull-up.</text>
+<text x="72" y="437" class="label">5V/VIN</text><text x="250" y="437" class="label">Protected +5V</text>
+<text x="72" y="477" class="label">GND</text><text x="250" y="477" class="label">Common GND</text>
+<text x="72" y="517" class="label">3V3</text><text x="250" y="517" class="label">PN532 + NTC divider</text>
+<text x="72" y="557" class="label">GPIO25</text><text x="250" y="557" class="label">MAIN_PWM</text>
+<text x="72" y="597" class="label">GPIO26</text><text x="250" y="597" class="label">PROJECTION_PWM</text>
+<text x="72" y="637" class="label">GPIO33</text><text x="250" y="637" class="label">BUTTON / INPUT_PULLUP</text>
+<text x="72" y="677" class="label">GPIO34</text><text x="250" y="677" class="label">NTC_ADC</text>
+<text x="72" y="729" class="small">SPI: SCK18 / MISO19 / MOSI23 / SS27</text>
+<rect x="545" y="320" width="420" height="198" class="box"/>
+<text x="568" y="357" class="head">PN532 / HARDWARE SPI</text>
+<text x="568" y="394" class="label">3V3 → VCC   GND → GND</text>
+<text x="568" y="427" class="label">18 → SCK   19 ← MISO   23 → MOSI</text>
+<text x="568" y="460" class="label">27 → SS/SSEL   Select SPI on module.</text>
+<text x="568" y="491" class="small">Use a module rated for 3.3 V power and logic.</text>
+<rect x="1010" y="320" width="442" height="445" class="box"/>
+<text x="1033" y="357" class="head">LIGHT CHANNEL × 2</text>
+<text x="1033" y="387" class="small">Identical low-side stages; channel pins differ.</text>
+<path d="M1330 410V445" class="wire power"/><text x="1150" y="427" class="label">Protected +5V</text>
+<rect x="1200" y="445" width="190" height="63" fill="#343629" stroke="#d8af67"/>
+<text x="1212" y="472" class="label">5 V LED module</text><text x="1212" y="495" class="small">current-limited</text>
+<path d="M1295 508V555" class="wire power"/>
+<text x="1312" y="550" class="label">D</text><rect x="1267" y="555" width="55" height="65" fill="#24312a" stroke="#a7c788"/>
+<text x="1278" y="594" class="label">Q</text><text x="1314" y="634" class="label">S</text>
+<path d="M1055 588H1130 M1190 588H1267 M1295 620V697H1110 M1225 588V650 M1225 682V697" class="wire logic"/>
+<rect x="1130" y="578" width="60" height="20" fill="#202921" stroke="#a7c788"/><text x="1138" y="568" class="small">100 Ω</text>
+<rect x="1215" y="650" width="20" height="32" fill="#202921" stroke="#a7c788"/>
+<text x="1040" y="614" class="small">25 or 26 → Gate</text><text x="1250" y="670" class="small">100 kΩ</text><text x="1110" y="725" class="label">GND / Source / pull-down</text>
+<rect x="545" y="551" width="420" height="214" class="box"/>
+<text x="568" y="588" class="head">BUTTON / MOMENTARY N.O.</text>
+<text x="568" y="626" class="label">GPIO33 → switch → GND</text>
+<text x="568" y="660" class="small">Short: ON/OFF. Long: dim. Binding: short to arm.</text>
+<text x="568" y="691" class="small">Fault: hold 5 s after cooling below 45 °C.</text>
+<text x="568" y="722" class="small">Firmware never bypasses a missing temperature sensor.</text>
+<rect x="48" y="810" width="917" height="205" class="box"/>
+<text x="72" y="848" class="head">TEMPERATURE / 10 kΩ B3950 NTC</text>
+<text x="72" y="894" class="label">3V3</text><path d="M120 887H164 M248 887H350 M434 887H520" class="wire sensor"/>
+<rect x="164" y="877" width="84" height="20" fill="#202921" stroke="#b49ed4"/><text x="166" y="868" class="small">10 kΩ fixed</text>
+<rect x="350" y="877" width="84" height="20" fill="#202921" stroke="#b49ed4"/><text x="360" y="868" class="small">10 kΩ NTC</text><text x="531" y="893" class="label">GND</text>
+<path d="M295 887V939H155 M295 939H420" class="wire sensor"/><text x="72" y="945" class="label">GPIO34</text><text x="437" y="945" class="label">100 nF → GND</text>
+<text x="72" y="985" class="small">NTC near measured hottest location. Trip ≥55 °C; missing/invalid sensor latches OFF. Thresholds need physical validation.</text>
+<rect x="1010" y="810" width="442" height="205" class="box"/>
+<text x="1033" y="848" class="head">PROTOTYPE LIMITS</text>
+<text x="1033" y="884" class="label">Main module ≤150 mA; PWM cap 60%</text>
+<text x="1033" y="916" class="label">Projection module ≤200 mA; cap 35%</text>
+<text x="1033" y="948" class="label">Projection auto-off after 15 minutes</text>
+<text x="1033" y="982" class="small">Not task-light photometry or optical safety certification.</text>
+<text x="48" y="1060" class="label">MOSFET: choose a part with specified RDS(on) at VGS ≤3.3 V, not just a low threshold voltage. Add insulated strain relief.</text>
+<text x="48" y="1093" class="small">Authoritative nets and assembly steps: hardware/electronics/netlist.json + docs/HARDWARE.md. Check continuity with power disconnected.</text>
+</svg>

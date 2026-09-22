@@ -1,0 +1,19 @@
+{
+  "path": "/Users/sxlx/Documents/ChatGPT/tripo-向日葵/.runtime/restore-drill-20260922",
+  "counts": {
+    "users": 2,
+    "memories": 10,
+    "designs": 15,
+    "instances": 9,
+    "manufacturing_versions": 15,
+    "fabrication_records": 0,
+    "reference_assets": 0,
+    "fabrication_photos": 0
+  },
+  "actions": {
+    "sessions_invalidated": 6,
+    "commands_expired": 0,
+    "tripo_tasks_held": 0,
+    "device_credentials_invalidated": 2
+  }
+}

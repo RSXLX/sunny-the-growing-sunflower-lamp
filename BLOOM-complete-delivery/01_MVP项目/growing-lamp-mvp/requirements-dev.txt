@@ -1,0 +1,2 @@
+# Optional browser automation; also install requirements.txt for image tests.
+playwright==1.57.0

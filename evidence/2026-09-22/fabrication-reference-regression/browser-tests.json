@@ -1,0 +1,37 @@
+{
+  "checks": [
+    {
+      "name": "native upload, canonical image preview and metadata removal",
+      "passed": true
+    },
+    {
+      "name": "generation confirmation displays only actual outgoing image",
+      "passed": true
+    },
+    {
+      "name": "one confirmed job, exact image hash, persistent idempotency and allowance",
+      "passed": true
+    },
+    {
+      "name": "page reload preserves queued task configuration and reference",
+      "passed": true
+    },
+    {
+      "name": "referenced image cannot be deleted",
+      "passed": true
+    },
+    {
+      "name": "second account has no reference access or retained private draft",
+      "passed": true
+    },
+    {
+      "name": "mobile studio layout and no uncaught JavaScript errors",
+      "passed": true
+    }
+  ],
+  "page_errors": [],
+  "paid_tripo_tested": false,
+  "hardware_tested": false,
+  "mode": "native HTTP against isolated fixture server; generation worker disabled",
+  "passed": true
+}

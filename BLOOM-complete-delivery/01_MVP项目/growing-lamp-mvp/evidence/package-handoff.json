@@ -1,0 +1,18 @@
+{
+  "source_archive_name": "BLOOM-growing-lamp-MVP.zip",
+  "status": "passed",
+  "checks": [
+    "ZIP CRC verification and fresh extraction",
+    "All manifest SHA256 entries match extracted files",
+    "37 application/HTTP tests passed from extracted project",
+    "Fresh server boot, seeded login, dashboard state and correct JS MIME",
+    "Generation Worker creates actual STL and manufacturing ZIP after fresh extraction"
+  ],
+  "not_tested": [
+    "paid Tripo API",
+    "ESP32 complete build/flash",
+    "physical hardware"
+  ],
+  "source_changed_after_test": false,
+  "note": "Handoff was tested from an extracted archive. This report and test log are added in final repack; application/hardware sources unchanged."
+}

@@ -1,0 +1,33 @@
+{
+  "checks": [
+    {
+      "name": "STL rotation creates a draft while preserving the source version",
+      "passed": true
+    },
+    {
+      "name": "version preview and lamp trial load the exact immutable STL",
+      "passed": true
+    },
+    {
+      "name": "original GLB geometry preserves proportions and uses the shared server decoder",
+      "passed": true
+    },
+    {
+      "name": "raw dimensions save with provenance and missing converter stays a non-manufacturable draft",
+      "passed": true
+    },
+    {
+      "name": "mobile version preview has no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "invalid mesh displays a visible error with no substituted model or uncaught exception",
+      "passed": true
+    }
+  ],
+  "page_errors": [],
+  "mode": "native HTTP, synthetic GLB fixtures, no generation workers",
+  "paid_tripo_tested": false,
+  "hardware_tested": false,
+  "passed": true
+}

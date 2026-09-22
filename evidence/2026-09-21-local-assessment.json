@@ -1,0 +1,16 @@
+{
+  "date": "2026-09-21",
+  "archive_entries": 125,
+  "zip_crc": "passed",
+  "sha256_entries": 124,
+  "sha256_mismatches": 0,
+  "command": "python3 tools/check.py",
+  "exit_code": 0,
+  "python_version": "3.9.6",
+  "documented_python_requirement": ">=3.10",
+  "python_tests": {"run": 37, "passed": 37},
+  "node_syntax": {"web/app.js": "passed", "web/viewer.js": "passed"},
+  "portable_cpp_logic": "passed",
+  "not_run": ["native browser E2E", "WebGL and Safari", "PlatformIO full build", "ESP32 flash", "paid Tripo", "CAD re-export", "physical manufacture and validation"],
+  "note": "Summary of current tool results; original package evidence retained unchanged. No implementation changes made."
+}

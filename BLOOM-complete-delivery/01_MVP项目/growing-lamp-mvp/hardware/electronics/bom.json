@@ -1,0 +1,134 @@
+[
+  {
+    "reference": "U1",
+    "item": "ESP32 DevKit V1 / ESP32-WROOM-32",
+    "quantity": 1,
+    "specification": "5V VIN, 3.3V GPIO; pin labels must match GPIO numbers"
+  },
+  {
+    "reference": "U2",
+    "item": "PN532 SPI module",
+    "quantity": 1,
+    "specification": "3.3V-compatible; measure actual PCB before editing 43 × 41 mm CAD assumption"
+  },
+  {
+    "reference": "TAG",
+    "item": "NTAG213 NFC sticker",
+    "quantity": 3,
+    "specification": "genuine writable Type-2; at least 48 bytes writable user area; max 22 × 22 mm target"
+  },
+  {
+    "reference": "PS1",
+    "item": "External isolated regulated supply",
+    "quantity": 1,
+    "specification": "5V / 2A; purchased enclosed supply; no mains wiring"
+  },
+  {
+    "reference": "F1",
+    "item": "Inline fuse + holder",
+    "quantity": 1,
+    "specification": "1.5A nominal prototype target; assess inrush and wire rating"
+  },
+  {
+    "reference": "P1",
+    "item": "Reverse-polarity protection module",
+    "quantity": 1,
+    "specification": "5V-compatible; verified current rating and pinout"
+  },
+  {
+    "reference": "L1",
+    "item": "Current-limited warm-white LED module",
+    "quantity": 1,
+    "specification": "5V rated, ≤150 mA full drive; no bare high-power LED"
+  },
+  {
+    "reference": "L2",
+    "item": "Current-limited projection LED module",
+    "quantity": 1,
+    "specification": "5V rated, ≤200 mA full drive; small apparent source; shield direct view"
+  },
+  {
+    "reference": "Q1,Q2",
+    "item": "Logic-level N-MOSFET stage",
+    "quantity": 2,
+    "specification": "RDS(on) specified at 2.5V or 3.3V gate drive; use module/breakout"
+  },
+  {
+    "reference": "RG1,RG2",
+    "item": "100 Ω gate resistor",
+    "quantity": 2,
+    "specification": "one per gate"
+  },
+  {
+    "reference": "RPD1,RPD2",
+    "item": "100 kΩ gate pull-down",
+    "quantity": 2,
+    "specification": "gate to source"
+  },
+  {
+    "reference": "RT",
+    "item": "10 kΩ 1% resistor",
+    "quantity": 1,
+    "specification": "3V3 to ADC node"
+  },
+  {
+    "reference": "NTC1",
+    "item": "10 kΩ B3950 thermistor",
+    "quantity": 1,
+    "specification": "insulated leads, thermal coupling to hotspot; calibrate against reference"
+  },
+  {
+    "reference": "CT",
+    "item": "100 nF capacitor",
+    "quantity": 1,
+    "specification": "ADC node to GND"
+  },
+  {
+    "reference": "SW1",
+    "item": "Momentary normally-open panel button",
+    "quantity": 1,
+    "specification": "CAD bore 8.2 mm is an assumption; modify to real switch"
+  },
+  {
+    "reference": "OPT1",
+    "item": "Convex lens",
+    "quantity": 1,
+    "specification": "diameter 25 mm; nominal focal length about 35 mm; real focusing required"
+  },
+  {
+    "reference": "DIFF1",
+    "item": "Diffusion film/disc",
+    "quantity": 1,
+    "specification": "cut 55.5 mm nominal; confirm heat suitability; not structural"
+  },
+  {
+    "reference": "STEM",
+    "item": "Metal tube",
+    "quantity": 1,
+    "specification": "OD12 / ID8 / length174 mm; deburr; insulated cable entry"
+  },
+  {
+    "reference": "FAST",
+    "item": "M3 bolts, washers and nuts",
+    "quantity": "set",
+    "specification": "retainer nominal M3×45; bracket M3×10; clamp M3×35; select after fit check"
+  },
+  {
+    "reference": "BASE",
+    "item": "Nonconductive ballast + non-slip feet",
+    "quantity": "set",
+    "specification": "secure ballast to base; check full-assembly tipping; not included in STL"
+  },
+  {
+    "reference": "HARNESS",
+    "item": "Wire, insulated joints, grommets, zip ties",
+    "quantity": "set",
+    "specification": "wire size/rating suitable for ≤1.5A fused branch; avoid bare Dupont joints in final demo"
+  },
+  {
+    "reference": "PRINT",
+    "item": "Printed mechanical parts",
+    "quantity": 17,
+    "specification": "14 common parts + 3 crown variants; geometric checks only"
+  }
+]

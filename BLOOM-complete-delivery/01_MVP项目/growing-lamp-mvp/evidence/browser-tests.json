@@ -1,0 +1,73 @@
+{
+  "mode": "in-memory UI + independent localhost HTTP bridge",
+  "checks": [
+    {
+      "name": "login and actual STL rendering",
+      "passed": true
+    },
+    {
+      "name": "page memory",
+      "passed": true
+    },
+    {
+      "name": "page studio",
+      "passed": true
+    },
+    {
+      "name": "page wardrobe",
+      "passed": true
+    },
+    {
+      "name": "page garden",
+      "passed": true
+    },
+    {
+      "name": "page hardware",
+      "passed": true
+    },
+    {
+      "name": "create private memory",
+      "passed": true
+    },
+    {
+      "name": "generate persisted parametric model",
+      "passed": true
+    },
+    {
+      "name": "review gate",
+      "passed": true
+    },
+    {
+      "name": "download real manufacturing ZIP",
+      "passed": true
+    },
+    {
+      "name": "simulated NFC bind, readback acknowledgment and install",
+      "passed": true
+    },
+    {
+      "name": "explicit publish consent",
+      "passed": true
+    },
+    {
+      "name": "second account cannot see private memory",
+      "passed": true
+    },
+    {
+      "name": "second-account remix with provenance",
+      "passed": true
+    },
+    {
+      "name": "390px mobile layout has no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "no uncaught JavaScript exceptions",
+      "passed": true
+    }
+  ],
+  "page_errors": [],
+  "hardware_tested": false,
+  "paid_tripo_tested": false,
+  "passed": true
+}

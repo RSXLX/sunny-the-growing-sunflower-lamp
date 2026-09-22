@@ -1,0 +1,10 @@
+{
+  "theme": "stars",
+  "seed": 32,
+  "lobes": 8,
+  "root_radius": 70.0,
+  "tip_radius": 93.8202792401007,
+  "phase": 0.7821144356676718,
+  "inner_radius": 38.0,
+  "thickness": 4.0
+}

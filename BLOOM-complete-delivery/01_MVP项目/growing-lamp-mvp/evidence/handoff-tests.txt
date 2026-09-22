@@ -1,0 +1,42 @@
+test_01_passwords (test_core.CoreTests.test_01_passwords) ... ok
+test_02_private_memory_isolation (test_core.CoreTests.test_02_private_memory_isolation) ... ok
+test_03_private_design_isolation (test_core.CoreTests.test_03_private_design_isolation) ... ok
+test_04_generation_is_idempotent (test_core.CoreTests.test_04_generation_is_idempotent) ... ok
+test_05_generated_file_is_watertight (test_core.CoreTests.test_05_generated_file_is_watertight) ... ok
+test_06_meshes_differ_by_seed (test_core.CoreTests.test_06_meshes_differ_by_seed) ... ok
+test_07_review_and_publication_gates (test_core.CoreTests.test_07_review_and_publication_gates) ... ok
+test_08_public_memory_not_shared (test_core.CoreTests.test_08_public_memory_not_shared) ... ok
+test_09_remix_keeps_source (test_core.CoreTests.test_09_remix_keeps_source) ... ok
+test_10_delete_memory_preserves_design (test_core.CoreTests.test_10_delete_memory_preserves_design) ... ok
+test_11_real_device_starts_offline (test_core.CoreTests.test_11_real_device_starts_offline) ... ok
+test_12_simulator_cannot_touch_real_device (test_core.CoreTests.test_12_simulator_cannot_touch_real_device) ... ok
+test_13_real_binding_requires_physical_stage (test_core.CoreTests.test_13_real_binding_requires_physical_stage) ... ok
+test_14_binding_requires_pending_command (test_core.CoreTests.test_14_binding_requires_pending_command) ... ok
+test_15_real_binding_and_event_dedupe (test_core.CoreTests.test_15_real_binding_and_event_dedupe) ... ok
+test_16_sim_binding_does_not_count_as_hardware (test_core.CoreTests.test_16_sim_binding_does_not_count_as_hardware) ... ok
+test_17_installation_deduplicates (test_core.CoreTests.test_17_installation_deduplicates) ... ok
+test_18_light_supersession_ack_and_limits (test_core.CoreTests.test_18_light_supersession_ack_and_limits) ... ok
+test_19_expired_commands_not_delivered (test_core.CoreTests.test_19_expired_commands_not_delivered) ... ok
+test_20_storage_survives_reopen (test_core.CoreTests.test_20_storage_survives_reopen) ... ok
+test_21_missing_key_never_silently_calls_paid_api (test_core.CoreTests.test_21_missing_key_never_silently_calls_paid_api) ... ok
+test_22_unknown_submission_not_repeated (test_core.CoreTests.test_22_unknown_submission_not_repeated) ... ok
+test_23_tripo_request_contract (test_core.CoreTests.test_23_tripo_request_contract) ... ok
+test_24_private_asset_urls_rejected (test_core.CoreTests.test_24_private_asset_urls_rejected) ... ok
+test_25_glb_translation_parsing (test_core.CoreTests.test_25_glb_translation_parsing) ... ok
+test_01_root_and_assets (test_http.HttpTests.test_01_root_and_assets) ... ok
+test_02_requires_authentication (test_http.HttpTests.test_02_requires_authentication) ... ok
+test_03_cookie_security (test_http.HttpTests.test_03_cookie_security) ... ok
+test_04_csrf_required (test_http.HttpTests.test_04_csrf_required) ... ok
+test_05_memory_write_read_delete (test_http.HttpTests.test_05_memory_write_read_delete) ... ok
+test_06_cross_origin_write (test_http.HttpTests.test_06_cross_origin_write) ... ok
+test_07_host_rebinding_rejected (test_http.HttpTests.test_07_host_rebinding_rejected) ... ok
+test_08_traversal_rejected (test_http.HttpTests.test_08_traversal_rejected) ... ok
+test_09_device_bearer_required (test_http.HttpTests.test_09_device_bearer_required) ... ok
+test_10_create_real_device_protocol (test_http.HttpTests.test_10_create_real_device_protocol) ... ok
+test_11_security_headers (test_http.HttpTests.test_11_security_headers) ... ok
+test_12_bad_login_rejected (test_http.HttpTests.test_12_bad_login_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 37 tests in 2.623s
+
+OK

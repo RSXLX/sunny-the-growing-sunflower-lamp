@@ -1,0 +1,138 @@
+{
+  "version": "bloom-harness-v1",
+  "voltage": "5V power / 3.3V logic",
+  "status": "UNBUILT_PROTOTYPE",
+  "nets": [
+    {
+      "name": "PWR_IN",
+      "connections": [
+        "PSU_5V_PLUS",
+        "FUSE_IN"
+      ],
+      "note": "external isolated regulated 5V/2A; no mains inside lamp"
+    },
+    {
+      "name": "PWR_PROTECTED",
+      "connections": [
+        "FUSE_OUT_THROUGH_POLARITY_PROTECTION",
+        "ESP32_VIN_5V",
+        "MAIN_LED_PLUS",
+        "PROJECTOR_LED_PLUS"
+      ],
+      "note": "verify power-module polarity; do not backfeed USB"
+    },
+    {
+      "name": "GND",
+      "connections": [
+        "PSU_MINUS",
+        "ESP32_GND",
+        "PN532_GND",
+        "Q1_SOURCE",
+        "Q2_SOURCE",
+        "R1_PULLDOWN_LOW",
+        "R2_PULLDOWN_LOW",
+        "NTC_LOW",
+        "C_NTC_LOW",
+        "BUTTON_LOW"
+      ]
+    },
+    {
+      "name": "3V3",
+      "connections": [
+        "ESP32_3V3",
+        "PN532_VCC",
+        "R_NTC_TOP"
+      ],
+      "note": "only 3.3V-compatible PN532 module"
+    },
+    {
+      "name": "MAIN_GATE_DRIVE",
+      "connections": [
+        "ESP32_GPIO25",
+        "R_GATE_MAIN_100R_HIGH"
+      ]
+    },
+    {
+      "name": "MAIN_GATE",
+      "connections": [
+        "R_GATE_MAIN_100R_LOW",
+        "Q1_GATE",
+        "R1_PULLDOWN_100K_HIGH"
+      ]
+    },
+    {
+      "name": "MAIN_LED_RETURN",
+      "connections": [
+        "Q1_DRAIN",
+        "MAIN_LED_MINUS"
+      ]
+    },
+    {
+      "name": "PROJECTOR_GATE_DRIVE",
+      "connections": [
+        "ESP32_GPIO26",
+        "R_GATE_PROJECTOR_100R_HIGH"
+      ]
+    },
+    {
+      "name": "PROJECTOR_GATE",
+      "connections": [
+        "R_GATE_PROJECTOR_100R_LOW",
+        "Q2_GATE",
+        "R2_PULLDOWN_100K_HIGH"
+      ]
+    },
+    {
+      "name": "PROJECTOR_LED_RETURN",
+      "connections": [
+        "Q2_DRAIN",
+        "PROJECTOR_LED_MINUS"
+      ]
+    },
+    {
+      "name": "SPI_SCK",
+      "connections": [
+        "ESP32_GPIO18",
+        "PN532_SCK"
+      ]
+    },
+    {
+      "name": "SPI_MISO",
+      "connections": [
+        "ESP32_GPIO19",
+        "PN532_MISO"
+      ]
+    },
+    {
+      "name": "SPI_MOSI",
+      "connections": [
+        "ESP32_GPIO23",
+        "PN532_MOSI"
+      ]
+    },
+    {
+      "name": "SPI_SS",
+      "connections": [
+        "ESP32_GPIO27",
+        "PN532_SS"
+      ]
+    },
+    {
+      "name": "BUTTON",
+      "connections": [
+        "ESP32_GPIO33",
+        "BUTTON_HIGH"
+      ],
+      "note": "normally open button to GND; internal pull-up"
+    },
+    {
+      "name": "NTC_ADC",
+      "connections": [
+        "R_NTC_BOTTOM_10K",
+        "ESP32_GPIO34",
+        "NTC_HIGH_10K_B3950",
+        "C_NTC_HIGH_100NF"
+      ]
+    }
+  ]
+}

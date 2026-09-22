@@ -1,0 +1,2 @@
+# Canonical JPEG/PNG decoding and metadata removal for reference assets.
+Pillow==12.3.0
