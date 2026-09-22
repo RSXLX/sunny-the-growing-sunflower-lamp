@@ -89,13 +89,13 @@ void installTag(const char* instance){
 void sampleSafety(uint32_t now);
 
 bool readApplicationTag(char instance[33]){
- uint8_t bytes[bloom::TAG_BYTES]{};
+ uint8_t bytes[bloom::NDEF_TAG_BYTES]{};
  for(uint8_t page=4;page<16;page++){sampleSafety(millis());uint8_t buf[4];if(!nfc.ntag2xx_ReadPage(page,buf))return false;memcpy(bytes+(page-4)*4,buf,4);}
  return bloom::readNdef(bytes,instance);
 }
 bool writeApplicationTag(const char* instance){
- uint8_t cc[4];if(!nfc.ntag2xx_ReadPage(3,cc)||cc[0]!=0xE1||cc[2]*8<bloom::TAG_BYTES||(cc[3]&0x0f)!=0)return false;
- uint8_t bytes[bloom::TAG_BYTES];if(!bloom::makeNdef(instance,bytes))return false;
+ uint8_t cc[4];if(!nfc.ntag2xx_ReadPage(3,cc)||cc[0]!=0xE1||cc[2]*8<bloom::NDEF_TAG_BYTES||(cc[3]&0x0f)!=0)return false;
+ uint8_t bytes[bloom::NDEF_TAG_BYTES];if(!bloom::makeNdef(instance,bytes))return false;
  // Commit TLV length last: an interrupted write must not be mistaken for a valid tag.
  uint8_t empty[4]={3,0,0,0};if(!nfc.ntag2xx_WritePage(4,empty))return false;
  for(uint8_t page=5;page<16;page++){sampleSafety(millis());if(!nfc.ntag2xx_WritePage(page,bytes+(page-4)*4))return false;}

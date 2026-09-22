@@ -5,7 +5,7 @@
 #include <algorithm>
 
 namespace bloom {
-constexpr unsigned TAG_BYTES=48;
+constexpr unsigned NDEF_TAG_BYTES=48;
 inline bool validInstance(const char* id){
  if(!id||std::strlen(id)!=32)return false;
  for(unsigned i=0;i<32;i++)if(!((id[i]>='0'&&id[i]<='9')||(id[i]>='a'&&id[i]<='f')))return false;
@@ -13,12 +13,12 @@ inline bool validInstance(const char* id){
 }
 // NFC Forum Text RTD, UTF-8, language "en", application value BLM1:<32 hex>.
 // Exactly 48 bytes starting at NTAG213 user page 4. Never write lock/config pages.
-inline bool makeNdef(const char* instance,uint8_t out[TAG_BYTES]){
+inline bool makeNdef(const char* instance,uint8_t out[NDEF_TAG_BYTES]){
  if(!validInstance(instance))return false;
- std::memset(out,0,TAG_BYTES);out[0]=0x03;out[1]=44;out[2]=0xD1;out[3]=1;out[4]=40;out[5]='T';out[6]=2;out[7]='e';out[8]='n';
+ std::memset(out,0,NDEF_TAG_BYTES);out[0]=0x03;out[1]=44;out[2]=0xD1;out[3]=1;out[4]=40;out[5]='T';out[6]=2;out[7]='e';out[8]='n';
  std::memcpy(out+9,"BLM1:",5);std::memcpy(out+14,instance,32);out[46]=0xFE;return true;
 }
-inline bool readNdef(const uint8_t in[TAG_BYTES],char instance[33]){
+inline bool readNdef(const uint8_t in[NDEF_TAG_BYTES],char instance[33]){
  if(in[0]!=3||in[1]!=44||in[2]!=0xD1||in[3]!=1||in[4]!=40||in[5]!='T'||in[6]!=2||in[7]!='e'||in[8]!='n'||in[46]!=0xFE||std::memcmp(in+9,"BLM1:",5))return false;
  std::memcpy(instance,in+14,32);instance[32]=0;return validInstance(instance);
 }

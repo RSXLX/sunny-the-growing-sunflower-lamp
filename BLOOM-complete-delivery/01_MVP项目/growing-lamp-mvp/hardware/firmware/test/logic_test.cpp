@@ -3,7 +3,7 @@
 #include <iostream>
 int main(){
  using namespace bloom;
- const char* id="0123456789abcdef0123456789abcdef";uint8_t bytes[TAG_BYTES];char parsed[33];
+ const char* id="0123456789abcdef0123456789abcdef";uint8_t bytes[NDEF_TAG_BYTES];char parsed[33];
  assert(validInstance(id));assert(!validInstance("invalid"));assert(makeNdef(id,bytes));assert(readNdef(bytes,parsed));assert(!strcmp(id,parsed));
  for(unsigned i: {0U,1U,2U,5U,9U,46U}){uint8_t original=bytes[i];bytes[i]^=0x20;assert(!readNdef(bytes,parsed));bytes[i]=original;}
  bytes[1]=0;assert(!readNdef(bytes,parsed)); // interrupted-write commit marker
